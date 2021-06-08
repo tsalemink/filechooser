@@ -1,5 +1,3 @@
-
-
 from PySide2 import QtWidgets
 
 from mapclientplugins.filechooserstep.ui_configuredialog import Ui_ConfigureDialog
@@ -7,6 +5,7 @@ import os
 
 INVALID_STYLE_SHEET = 'background-color: rgba(239, 0, 0, 50)'
 DEFAULT_STYLE_SHEET = ''
+
 
 class ConfigureDialog(QtWidgets.QDialog):
     '''
@@ -29,7 +28,7 @@ class ConfigureDialog(QtWidgets.QDialog):
         # Set a place holder for a callable that will get set from the step.
         # We will use this method to decide whether the identifier is unique.
         self.identifierOccursCount = None
-        
+
         self._previousLocation = ''
 
         self._makeConnections()
@@ -38,7 +37,7 @@ class ConfigureDialog(QtWidgets.QDialog):
         self._ui.lineEdit0.textChanged.connect(self.validate)
         self._ui.lineEditFileLocation.textChanged.connect(self.validate)
         self._ui.pushButtonFileChooser.clicked.connect(self._fileChooserClicked)
-        
+
     def _fileChooserClicked(self):
         # Second parameter returned is the filter chosen
         location, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Select File Location', self._previousLocation)
@@ -55,8 +54,9 @@ class ConfigureDialog(QtWidgets.QDialog):
         result = QtWidgets.QMessageBox.Yes
         if not self.validate():
             result = QtWidgets.QMessageBox.warning(self, 'Invalid Configuration',
-                'This configuration is invalid.  Unpredictable behaviour may result if you choose \'Yes\', are you sure you want to save this configuration?)',
-                QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
+                                                   'This configuration is invalid.  Unpredictable behaviour may result if you choose \'Yes\', are you sure you want to save this configuration?)',
+                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                   QtWidgets.QMessageBox.No)
 
         if result == QtWidgets.QMessageBox.Yes:
             QtWidgets.QDialog.accept(self)
@@ -75,7 +75,7 @@ class ConfigureDialog(QtWidgets.QDialog):
             self._ui.lineEdit0.setStyleSheet(DEFAULT_STYLE_SHEET)
         else:
             self._ui.lineEdit0.setStyleSheet(INVALID_STYLE_SHEET)
-            
+
         location_valid = os.path.isfile(self._ui.lineEditFileLocation.text())
 
         return valid and location_valid
@@ -101,4 +101,3 @@ class ConfigureDialog(QtWidgets.QDialog):
         self._previousIdentifier = config['identifier']
         self._ui.lineEdit0.setText(config['identifier'])
         self._ui.lineEditFileLocation.setText(config['File'])
-

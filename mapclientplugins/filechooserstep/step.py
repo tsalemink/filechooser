@@ -1,4 +1,3 @@
-
 '''
 MAP Client Plugin Step
 '''
@@ -18,21 +17,20 @@ class FileChooserStep(WorkflowStepMountPoint):
 
     def __init__(self, location):
         super(FileChooserStep, self).__init__('File Chooser', location)
-        self._configured = False # A step cannot be executed until it has been configured.
+        self._configured = False  # A step cannot be executed until it has been configured.
         self._category = 'Source'
         # Add any other initialisation code here:
-        self._icon =  QtGui.QImage(':/filechooserstep/images/data-source.png')
+        self._icon = QtGui.QImage(':/filechooserstep/images/data-source.png')
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#file_location'))
         # Port data:
-        self._portData0 = None # http://physiomeproject.org/workflow/1.0/rdf-schema#file_location
+        self._portData0 = None  # http://physiomeproject.org/workflow/1.0/rdf-schema#file_location
         # Config:
         self._config = {}
         self._config['identifier'] = ''
         self._config['File'] = ''
-
 
     def execute(self):
         '''
@@ -49,7 +47,7 @@ class FileChooserStep(WorkflowStepMountPoint):
         The index is the index of the port in the port list.  If there is only one
         provides port for this step then the index can be ignored.
         '''
-        return self._config['File'] # http://physiomeproject.org/workflow/1.0/rdf-schema#file_location
+        return self._config['File']  # http://physiomeproject.org/workflow/1.0/rdf-schema#file_location
 
     def configure(self):
         '''
@@ -90,7 +88,6 @@ class FileChooserStep(WorkflowStepMountPoint):
         '''
         return json.dumps(self._config, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
-
     def deserialize(self, string):
         '''
         Add code to deserialize this step from string.  This method should
@@ -102,5 +99,3 @@ class FileChooserStep(WorkflowStepMountPoint):
         d.identifierOccursCount = self._identifierOccursCount
         d.setConfig(self._config)
         self._configured = d.validate()
-
-
