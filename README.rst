@@ -1,7 +1,7 @@
 
-============
-File Chooser
-============
+=====================
+Multiple File Chooser
+=====================
 
-A MAP Client step for choosing a single file from the local computer.
+A MAP Client step for choosing a multiple files from the local computer.
 
