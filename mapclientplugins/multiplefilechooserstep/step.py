@@ -24,8 +24,8 @@ class MultipleFileChooserStep(WorkflowStepMountPoint):
         self._icon = QtGui.QImage(':/multiplefilechooserstep/images/data-source.png')
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
-                      'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
-                      'http://physiomeproject.org/workflow/1.0/rdf-schema#multiple_file_locations'))
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#provides-list-of',
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#file_location'))
         # Port data:
         self._portData0 = []  # http://physiomeproject.org/workflow/1.0/rdf-schema#multiple_file_locations
         # Config:
