@@ -4,12 +4,11 @@ import re
 
 from setuptools import setup, find_packages
 
-
-here = os.path.abspath(os.path.dirname(__file__))
+SETUP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def read(*parts):
-    with codecs.open(os.path.join(here, *parts), 'r') as fp:
+    with codecs.open(os.path.join(SETUP_DIR, *parts), 'r') as fp:
         return fp.read()
 
 
