@@ -103,7 +103,7 @@ class ConfigureDialog(QtWidgets.QDialog):
         else:
             self._ui.lineEditIdentifier.setStyleSheet(INVALID_STYLE_SHEET)
 
-        valid_files = True
+        valid_files = self._ui.listWidgetFiles.count() > 0
         for i in range(self._ui.listWidgetFiles.count()):
             file = self._ui.listWidgetFiles.item(i).text()
             if not os.path.isfile(os.path.join(self._workflow_location, file)):
