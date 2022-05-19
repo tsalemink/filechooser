@@ -79,6 +79,9 @@
       </item>
       <item row="1" column="1">
        <widget class="QListWidget" name="listWidgetFiles">
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::InternalMove</enum>
+        </property>
         <property name="selectionMode">
          <enum>QAbstractItemView::MultiSelection</enum>
         </property>

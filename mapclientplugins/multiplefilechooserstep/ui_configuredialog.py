@@ -62,6 +62,7 @@ class Ui_ConfigureDialog(object):
 
         self.listWidgetFiles = QListWidget(self.configGroupBox)
         self.listWidgetFiles.setObjectName(u"listWidgetFiles")
+        self.listWidgetFiles.setDragDropMode(QAbstractItemView.InternalMove)
         self.listWidgetFiles.setSelectionMode(QAbstractItemView.MultiSelection)
 
         self.gridLayout_2.addWidget(self.listWidgetFiles, 1, 1, 1, 1)
