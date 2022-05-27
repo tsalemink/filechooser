@@ -3,7 +3,7 @@ MAP Client Plugin - Multiple File Chooser
 
 The **Multiple File Chooser** is a MAP Client plugin for choosing multiple files from the local disk.
 
-.. _fig-mcp-muxer-un-configured-step:
+.. _fig-mcp-multiple-file-chooser-un-configured-step:
 
 .. figure:: _images/un-configured-step.png
    :alt: Un-configured step icon
@@ -39,3 +39,12 @@ If no filter expression is entered, then all files found in the directory and su
    :alt: Load directory files dialog
 
    *Multiple File Chooser* step load directory files dialog.
+
+Ports
+-----
+
+This plugin:
+
+* **provides**:
+
+  * A *list-of* *http://physiomeproject.org/workflow/1.0/rdf-schema#file_location*
