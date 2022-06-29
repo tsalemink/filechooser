@@ -84,7 +84,7 @@ class Ui_ConfigureDialog(object):
     # setupUi
 
     def retranslateUi(self, ConfigureDialog):
-        ConfigureDialog.setWindowTitle(QCoreApplication.translate("ConfigureDialog", u"ConfigureDialog", None))
+        ConfigureDialog.setWindowTitle(QCoreApplication.translate("ConfigureDialog", u"Configure Multiple File Chooser", None))
         self.configGroupBox.setTitle("")
         self.pushButtonAdd.setText(QCoreApplication.translate("ConfigureDialog", u"Add", None))
 #if QT_CONFIG(tooltip)
