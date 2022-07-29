@@ -36,6 +36,8 @@ class ConfigureDialog(QtWidgets.QDialog):
         self._workflow_location = ''
         self._files = []
 
+        self.setWhatsThis("Please read documentation: \nhttps://abi-mapping-tools.readthedocs.io/en/latest/multiplefilechooser/docs/index.html")
+
         self._make_connections()
 
     def _make_connections(self):
