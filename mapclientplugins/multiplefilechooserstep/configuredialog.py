@@ -1,6 +1,7 @@
 import os
+import webbrowser
 
-from PySide2 import QtWidgets
+from PySide2 import QtCore, QtWidgets
 
 from mapclientplugins.multiplefilechooserstep.loaddirectoryfiles import LoadDirectoryFilesDialog
 from mapclientplugins.multiplefilechooserstep.ui_configuredialog import Ui_ConfigureDialog
@@ -36,7 +37,14 @@ class ConfigureDialog(QtWidgets.QDialog):
         self._workflow_location = ''
         self._files = []
 
+        self.setWhatsThis('<html>Please read the documentation available \n<a href="https://abi-mapping-tools.readthedocs.io/en/latest/multiplefilechooser/docs/index.html">here</a> for further details.</html>')
+
         self._make_connections()
+
+    def event(self, e):
+        if e.type() == QtCore.QEvent.Type.WhatsThisClicked:
+            webbrowser.open(e.href())
+        return super().event(e)
 
     def _make_connections(self):
         self._ui.lineEditIdentifier.textChanged.connect(self.validate)
