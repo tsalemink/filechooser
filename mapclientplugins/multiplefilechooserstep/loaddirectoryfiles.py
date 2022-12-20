@@ -1,6 +1,6 @@
 import os
 
-from PySide2 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 
 from mapclientplugins.multiplefilechooserstep.ui_loaddirectoryfiles import Ui_LoadDirectoryFilesDialog
 

@@ -4,7 +4,7 @@ MAP Client Plugin Step
 import json
 import os.path
 
-from PySide2 import QtGui
+from PySide6 import QtGui
 
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
 from mapclientplugins.multiplefilechooserstep.configuredialog import ConfigureDialog

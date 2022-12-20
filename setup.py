@@ -24,7 +24,7 @@ def find_version(*file_paths):
 # The dependencies variable is used by MAP Client to
 # determine if further downloads are required.  Please
 # list all dependencies here.
-dependencies = ['mapclient', 'PySide2']  # Insert plugin dependencies here
+dependencies = ['mapclient', 'PySide6']  # Insert plugin dependencies here
 
 setup(
     name=u'mapclientplugins.multiplefilechooserstep',
