@@ -3,7 +3,7 @@
 MAP Client Plugin
 """
 
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 __author__ = 'Hugh Sorby'
 __stepname__ = 'Multiple File Chooser'
 __location__ = 'https://github.com/mapclient-plugins/multiplefilechooser'
