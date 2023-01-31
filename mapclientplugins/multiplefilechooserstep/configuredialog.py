@@ -1,4 +1,6 @@
+import ntpath
 import os
+import sys
 import webbrowser
 
 from PySide6 import QtCore, QtWidgets
@@ -114,6 +116,8 @@ class ConfigureDialog(QtWidgets.QDialog):
         valid_files = self._ui.listWidgetFiles.count() > 0
         for i in range(self._ui.listWidgetFiles.count()):
             file = self._ui.listWidgetFiles.item(i).text()
+            if sys.platform != "win32":
+                file = file.replace(ntpath.sep, os.path.sep)
             if not os.path.isfile(os.path.join(self._workflow_location, file)):
                 valid_files = False
 
