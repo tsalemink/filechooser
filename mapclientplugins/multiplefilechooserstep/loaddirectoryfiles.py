@@ -1,5 +1,3 @@
-import os
-
 from PySide6 import QtWidgets, QtCore
 
 from mapclientplugins.multiplefilechooserstep.ui_loaddirectoryfiles import Ui_LoadDirectoryFilesDialog
@@ -41,7 +39,7 @@ class LoadDirectoryFilesDialog(QtWidgets.QDialog):
             self._fileSystemModel.setRootPath(location)
             self._ui.treeView.setRootIndex(self._fileSystemModel.index(location))
         else:
-            return QtWidgets.QDialog.Rejected
+            return QtWidgets.QDialog.DialogCode.Rejected
 
         return QtWidgets.QDialog.exec_(self)
 

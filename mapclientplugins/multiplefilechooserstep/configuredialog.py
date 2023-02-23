@@ -39,7 +39,8 @@ class ConfigureDialog(QtWidgets.QDialog):
         self._workflow_location = ''
         self._files = []
 
-        self.setWhatsThis('<html>Please read the documentation available \n<a href="https://abi-mapping-tools.readthedocs.io/en/latest/multiplefilechooser/docs/index.html">here</a> for further details.</html>')
+        self.setWhatsThis('<html>Please read the documentation available \n<a href="https://abi-mapping-tools.readthedocs.io/en/latest/'
+                          'multiplefilechooser/docs/index.html">here</a> for further details.</html>')
 
         self._make_connections()
 
@@ -71,7 +72,7 @@ class ConfigureDialog(QtWidgets.QDialog):
         dlg = LoadDirectoryFilesDialog(self)
         dlg.set_previous_location(self._previousLocation)
 
-        if dlg.exec_() == QtWidgets.QDialog.Accepted:
+        if dlg.exec_() == QtWidgets.QDialog.DialogCode.Accepted:
             files = dlg.get_files()
             rel_files = []
             for file in files:
@@ -88,14 +89,15 @@ class ConfigureDialog(QtWidgets.QDialog):
         Override the accept method so that we can confirm saving an
         invalid configuration.
         """
-        result = QtWidgets.QMessageBox.Yes
+        result = QtWidgets.QMessageBox.StandardButton.Yes
         if not self.validate():
-            result = QtWidgets.QMessageBox.warning(
-                self, 'Invalid Configuration',
-                'This configuration is invalid.  Unpredictable behaviour may result if you choose \'Yes\', are you sure you want to save this configuration?)',
-                QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
+            result = QtWidgets.QMessageBox.warning(self, 'Invalid Configuration', 'This configuration is invalid.  Unpredictable behaviour '
+                                                   'may result if you choose \'Yes\', are you sure you want to save this configuration?)',
+                                                   QtWidgets.QMessageBox.StandardButton(QtWidgets.QMessageBox.StandardButton.Yes |
+                                                                                        QtWidgets.QMessageBox.StandardButton.No),
+                                                   QtWidgets.QMessageBox.StandardButton.No)
 
-        if result == QtWidgets.QMessageBox.Yes:
+        if result == QtWidgets.QMessageBox.StandardButton.Yes:
             QtWidgets.QDialog.accept(self)
 
     def validate(self):
