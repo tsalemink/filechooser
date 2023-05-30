@@ -1,14 +1,29 @@
-MAP Client Plugin - Multiple File Chooser
-=========================================
+Multiple File Chooser
+=====================
 
-The **Multiple File Chooser** is a MAP Client plugin for choosing multiple files from the local disk.
+Overview
+--------
 
-.. _fig-mcp-multiple-file-chooser-un-configured-step:
+The **Multiple Multiple File Chooser** is a MAP Client plugin for choosing multiple files from the local disk.
 
-.. figure:: _images/un-configured-step.png
-   :alt: Un-configured step icon
+Workflow Connections
+--------------------
 
-   An un-configured *Multiple File Chooser* step icon.
+As shown in :numref:`fig-mcp-multiple-file-chooser-workflow-connections`, the **Multiple File Chooser** does not need any input.
+
+It produces 1 output which may be piped to other workflow steps:
+
+1. A list of locations where the files are on the local disk. (Port: A *list-of* *http://physiomeproject.org/workflow/1.0/rdf-schema#file_location*) 
+
+.. _fig-mcp-multiple-file-chooser-workflow-connections:
+
+.. figure:: _images/workflow-connections.png
+   :alt: Multiple File Chooser workflow connections.
+   :align: center
+   :figwidth: 75%
+
+   **Multiple File Chooser** workflow connections.
+
 
 Configure
 ---------
@@ -40,11 +55,3 @@ If no filter expression is entered, then all files found in the directory and su
 
    *Multiple File Chooser* step load directory files dialog.
 
-Ports
------
-
-This plugin:
-
-* **provides**:
-
-  * A *list-of* *http://physiomeproject.org/workflow/1.0/rdf-schema#file_location*
